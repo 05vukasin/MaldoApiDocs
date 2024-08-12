@@ -1200,7 +1200,7 @@ Content-Type: application/json
             <h2>29. getOffersWithoutDriver</h2>
             <p><strong>Endpoint:</strong> <code>/api/Offer/GetWithoutDriver</code></p>
             <p><strong>Metoda:</strong> GET</p>
-            <p><strong>Opis:</strong> Dohvata sve ponude koje nemaju dodeljenog vozača.</p>
+            <p><strong>Opis:</strong> Dohvata sve ponude koje nemaju dodeljenog vozača, zajedno sa podacima o poslodavcu.</p>
             <h3>Odgovori:</h3>
             <ul>
                 <li><strong>200 OK:</strong> Uspešno dohvaćene sve ponude bez vozača.</li>
@@ -1208,32 +1208,39 @@ Content-Type: application/json
             </ul>
             <h3>Primer korišćenja:</h3>
             <pre class="code-example">
-        GET /api/Offer/GetWithoutDriver HTTP/1.1
-        Host: [domen]
+            GET /api/Offer/GetWithoutDriver HTTP/1.1
+            Host: [domen]
             </pre>
             <h3>Odgovor:</h3>
             <pre class="code-example">
-        [
-            {
-                "id": 92,
-                "employerId": 2,
-                "cargoName": "Drveni materijal",
-                "cargoType": "Grede",
-                "cargoWeight": 1200.5,
-                "cargoDimensions": "2m x 0.2m x 0.2m",
-                "departureDate": "2024-09-15T00:00:00",
-                "deliveryDate": "2024-09-16T00:00:00",
-                "travelDuration": 1,
-                "additionalDescription": "Grede su osetljive na vlagu.",
-                "price": 3500,
-                "departureLocation": "Kragujevac",
-                "deliveryLocation": "Čačak",
-                "creationDate": "2024-08-10T11:14:54"
-            },
-            ...
-        ]
+            [
+                {
+                    "id": 92,
+                    "employer": {
+                        "id": 2,
+                        "username": "employerUser",
+                        "email": "employer@example.com",
+                        "name": "Example Company",
+                        "phone": "123456789"
+                    },
+                    "cargoName": "Drveni materijal",
+                    "cargoType": "Grede",
+                    "cargoWeight": 1200.5,
+                    "cargoDimensions": "2m x 0.2m x 0.2m",
+                    "departureDate": "2024-09-15T00:00:00",
+                    "deliveryDate": "2024-09-16T00:00:00",
+                    "travelDuration": 1,
+                    "additionalDescription": "Grede su osetljive na vlagu.",
+                    "price": 3500,
+                    "departureLocation": "Kragujevac",
+                    "deliveryLocation": "Čačak",
+                    "creationDate": "2024-08-10T11:14:54"
+                },
+                ...
+            ]
             </pre>
         </div>
+        
         
         <div class="endpoint">
             <h2>30. GetOfferById</h2>
