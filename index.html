@@ -433,7 +433,7 @@ Content-Type: application/json
             <p><strong>Endpoint:</strong> <code>/api/Requests/Employer/{employerId}</code></p>
             <p><strong>Metoda:</strong> GET</p>
             <p><strong>Opis:</strong> Ova funkcija vraća sve zahteve poslodavca na osnovu ID-a poslodavca. Svaki zahtev sadrži
-                detalje o vozaču, poslodavcu i ponudi, a ID poslodavca je uključen.</p>
+                detalje o vozaču, ponudi, i ID poslodavca, a datum kreiranja zahteva je uključen.</p>
             <h3>Parametri:</h3>
             <ul>
                 <li><strong>employerId (int):</strong> Jedinstveni identifikator poslodavca. (Obavezno)</li>
@@ -454,7 +454,8 @@ Content-Type: application/json
         [
           {
             "request": {
-                "id": 11
+                "id": 11,
+                "creationDate": "2024-08-10T12:00:00"
             },
             "employerId": 1,
             "driver": {
@@ -478,8 +479,7 @@ Content-Type: application/json
                 "deliveryDate": "2024-09-11T00:00:00",
                 "travelDuration": 1,
                 "additionalDescription": "Cargo must be covered during transport.",
-                "price": 4000,
-                "creationDate": "2024-08-10T12:00:00"
+                "price": 4000
             }
           }
         ]
@@ -490,8 +490,7 @@ Content-Type: application/json
             <h2>11. GetRequestsByDriverId</h2>
             <p><strong>Endpoint:</strong> <code>/api/Requests/Driver/{driverId}</code></p>
             <p><strong>Metoda:</strong> GET</p>
-            <p><strong>Opis:</strong> Ova funkcija vraća sve zahteve vozača na osnovu ID-a vozača. Svaki zahtev sadrži
-                informacije o vozaču, poslodavcu i ponudi.</p>
+            <p><strong>Opis:</strong> Ova funkcija vraća sve zahteve vozača na osnovu ID-a vozača. Svaki zahtev sadrži informacije o vozaču, poslodavcu i ponudi, a datum kreiranja zahteva je uključen.</p>
             <h3>Parametri:</h3>
             <ul>
                 <li><strong>driverId (int):</strong> Jedinstveni identifikator vozača. (Obavezno)</li>
@@ -512,7 +511,8 @@ Content-Type: application/json
         [
           {
             "request": {
-                "id": 15
+                "id": 15,
+                "creationDate": "2024-08-10T12:00:00"
             },
             "driver": {
                 "id": 1,
@@ -541,8 +541,7 @@ Content-Type: application/json
                 "deliveryDate": "2024-10-16T00:00:00",
                 "travelDuration": 1,
                 "additionalDescription": "Bricks for furniture production.",
-                "price": 3900,
-                "creationDate": "2024-08-10T12:00:00"
+                "price": 3900
             }
           }
         ]
