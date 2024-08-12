@@ -432,8 +432,7 @@ Content-Type: application/json
             <h2>10. GetRequestsByEmployerId</h2>
             <p><strong>Endpoint:</strong> <code>/api/Requests/Employer/{employerId}</code></p>
             <p><strong>Metoda:</strong> GET</p>
-            <p><strong>Opis:</strong> Ova funkcija vraća sve zahteve poslodavca na osnovu ID-a poslodavca. Svaki zahtev
-                sadrži detalje o vozaču, poslodavcu i ponudi.</p>
+            <p><strong>Opis:</strong> Ova funkcija vraća sve zahteve poslodavca na osnovu ID-a poslodavca. Svaki zahtev sadrži detalje o vozaču i ponudi, a ID poslodavca je uključen.</p>
             <h3>Parametri:</h3>
             <ul>
                 <li><strong>employerId (int):</strong> Jedinstveni identifikator poslodavca. (Obavezno)</li>
@@ -442,6 +441,7 @@ Content-Type: application/json
             <ul>
                 <li><strong>200 OK:</strong> Uspešno vraćeni podaci o zahtevima.</li>
                 <li><strong>404 Not Found:</strong> Zahtevi za datog poslodavca nisu pronađeni.</li>
+                <li><strong>500 Internal Server Error:</strong> Došlo je do greške prilikom dohvatanja zahteva.</li>
             </ul>
             <h3>Primer korišćenja:</h3>
             <pre class="code-example">
@@ -452,7 +452,10 @@ Content-Type: application/json
             <pre class="code-example">
         [
           {
-            "RequestId": 11,
+            "request": {
+                "id": 11
+            },
+            "employerId": 1,
             "driver": {
                 "id": 15,
                 "username": "jale05",
@@ -461,15 +464,6 @@ Content-Type: application/json
                 "vehicle": "Truck Model",
                 "registration": "BG 1234 XY",
                 "rating": 4.5
-            },
-            "employer": {
-                "id": 1,
-                "username": "employerUser",
-                "email": "employer@example.com",
-                "name": "Example Company",
-                "phone": "123456789",
-                "rating": 4.5,
-                "totalRating": 10
             },
             "offer": {
                 "id": 141,
@@ -489,13 +483,12 @@ Content-Type: application/json
         ]
             </pre>
         </div>
-
+        
         <div class="endpoint">
             <h2>11. GetRequestsByDriverId</h2>
             <p><strong>Endpoint:</strong> <code>/api/Requests/Driver/{driverId}</code></p>
             <p><strong>Metoda:</strong> GET</p>
-            <p><strong>Opis:</strong> Ova funkcija vraća sve zahteve vozača na osnovu ID-a vozača. Svaki zahtev sadrži
-                informacije o vozaču, poslodavcu i ponudi.</p>
+            <p><strong>Opis:</strong> Ova funkcija vraća sve zahteve vozača na osnovu ID-a vozača. Svaki zahtev sadrži informacije o vozaču, poslodavcu i ponudi.</p>
             <h3>Parametri:</h3>
             <ul>
                 <li><strong>driverId (int):</strong> Jedinstveni identifikator vozača. (Obavezno)</li>
@@ -504,49 +497,52 @@ Content-Type: application/json
             <ul>
                 <li><strong>200 OK:</strong> Uspešno vraćeni podaci o zahtevima.</li>
                 <li><strong>404 Not Found:</strong> Zahtevi za datog vozača nisu pronađeni.</li>
+                <li><strong>500 Internal Server Error:</strong> Došlo je do greške prilikom dohvatanja zahteva.</li>
             </ul>
             <h3>Primer korišćenja:</h3>
             <pre class="code-example">
-GET /api/Requests/Driver/1 HTTP/1.1
-Host: [domen]
-    </pre>
+        GET /api/Requests/Driver/1 HTTP/1.1
+        Host: [domen]
+            </pre>
             <h3>Odgovor:</h3>
             <pre class="code-example">
-[
-  {
-    "RequestId": 15,
-    "driver": {
-        "id": 1,
-        "username": "okok",
-        "email": "vukasin.teslic@gmail.com",
-        "name": "Vukasin Teslic",
-        "vehicle": "Citroen C4",
-        "registration": "BG 1034 CG"
-    },
-    "employer": {
-        "id": 1,
-        "username": "Vukasin",
-        "email": "vukasin@gmail",
-        "name": "Company Name",
-        "phone": "123456"
-    },
-    "offer": {
-        "id": 98,
-        "cargoName": "Construction Material",
-        "cargoType": "Bricks",
-        "cargoWeight": 1100.8,
-        "cargoDimensions": "1.8m x 1.2m x 0.6m",
-        "departureLocation": "Belgrade",
-        "deliveryLocation": "Novi Sad",
-        "departureDate": "2024-10-15T00:00:00",
-        "arrivalDate": "2024-10-16T00:00:00",
-        "travelDuration": 1,
-        "additionalDescription": "Bricks for furniture production.",
-        "price": 3900
-    }
-  }
-]
-    </pre>
+        [
+          {
+            "request": {
+                "id": 15
+            },
+            "driver": {
+                "id": 1,
+                "username": "okok",
+                "email": "vukasin.teslic@gmail.com",
+                "name": "Vukasin Teslic",
+                "vehicle": "Citroen C4",
+                "registration": "BG 1034 CG"
+            },
+            "employer": {
+                "id": 1,
+                "username": "Vukasin",
+                "email": "vukasin@gmail",
+                "name": "Company Name",
+                "phone": "123456"
+            },
+            "offer": {
+                "id": 98,
+                "cargoName": "Construction Material",
+                "cargoType": "Bricks",
+                "cargoWeight": 1100.8,
+                "cargoDimensions": "1.8m x 1.2m x 0.6m",
+                "departureLocation": "Belgrade",
+                "deliveryLocation": "Novi Sad",
+                "departureDate": "2024-10-15T00:00:00",
+                "arrivalDate": "2024-10-16T00:00:00",
+                "travelDuration": 1,
+                "additionalDescription": "Bricks for furniture production.",
+                "price": 3900
+            }
+          }
+        ]
+            </pre>
         </div>
 
         <div class="endpoint">
@@ -1156,7 +1152,7 @@ Host: [domen]
         </div>
 
         <div class="endpoint">
-            <h2>28. GetAllOffers</h2>
+            <h2>28. getAllOffers</h2>
             <p><strong>Endpoint:</strong> <code>/api/Offer/GetAll</code></p>
             <p><strong>Metoda:</strong> GET</p>
             <p><strong>Opis:</strong> Dohvata sve ponude u sistemu.</p>
@@ -1174,30 +1170,30 @@ Host: [domen]
             <pre class="code-example">
         [
             {
-                "Id": 1,
-                "EmployerId": 1,
-                "DriverId": 1,
-                "CargoName": "Težak teret",
-                "CargoType": "Cigle",
-                "CargoWeight": 1500.00,
-                "CargoDimensions": "1.2m x 1m x 0.8m",
-                "DepartureDate": "2024-08-10T00:00:00",
-                "ArrivalDate": "2024-08-11T00:00:00",
-                "TravelDuration": 1,
-                "AdditionalDescription": "Teret mora biti prekriven tokom transporta.",
-                "Price": 5000.00,
-                "DepartureLocation": "Beograd",
-                "ArrivalLocation": "Novi Sad",
-                "CreationDate": "2024-08-01T12:00:00",
-                "Status": 1
+                "id": 1,
+                "employerId": 1,
+                "driverId": 1,
+                "cargoName": "Težak teret",
+                "cargoType": "Cigle",
+                "cargoWeight": 1500.00,
+                "cargoDimensions": "1.2m x 1m x 0.8m",
+                "departureDate": "2024-08-10T00:00:00",
+                "arrivalDate": "2024-08-11T00:00:00",
+                "travelDuration": 1,
+                "additionalDescription": "Teret mora biti prekriven tokom transporta.",
+                "price": 5000.00,
+                "departureLocation": "Beograd",
+                "arrivalLocation": "Novi Sad",
+                "creationDate": "2024-08-01T12:00:00",
+                "status": 1
             },
             ...
         ]
             </pre>
         </div>
-
+        
         <div class="endpoint">
-            <h2>29. GetOffersWithoutDriver</h2>
+            <h2>29. getOffersWithoutDriver</h2>
             <p><strong>Endpoint:</strong> <code>/api/Offer/GetWithoutDriver</code></p>
             <p><strong>Metoda:</strong> GET</p>
             <p><strong>Opis:</strong> Dohvata sve ponude koje nemaju dodeljenog vozača.</p>
@@ -1215,26 +1211,26 @@ Host: [domen]
             <pre class="code-example">
         [
             {
-                "Id": 92,
-                "EmployerId": 2,
-                "CargoName": "Drveni materijal",
-                "CargoType": "Grede",
-                "CargoWeight": 1200.5,
-                "CargoDimensions": "2m x 0.2m x 0.2m",
-                "DepartureDate": "2024-09-15T00:00:00",
-                "ArrivalDate": "2024-09-16T00:00:00",
-                "TravelDuration": 1,
-                "AdditionalDescription": "Grede su osetljive na vlagu.",
-                "Price": 3500,
-                "DepartureLocation": "Kragujevac",
-                "ArrivalLocation": "Čačak",
-                "CreationDate": "2024-08-10T11:14:54"
+                "id": 92,
+                "employerId": 2,
+                "cargoName": "Drveni materijal",
+                "cargoType": "Grede",
+                "cargoWeight": 1200.5,
+                "cargoDimensions": "2m x 0.2m x 0.2m",
+                "departureDate": "2024-09-15T00:00:00",
+                "arrivalDate": "2024-09-16T00:00:00",
+                "travelDuration": 1,
+                "additionalDescription": "Grede su osetljive na vlagu.",
+                "price": 3500,
+                "departureLocation": "Kragujevac",
+                "arrivalLocation": "Čačak",
+                "creationDate": "2024-08-10T11:14:54"
             },
             ...
         ]
             </pre>
         </div>
-
+        
         <div class="endpoint">
             <h2>30. GetOfferById</h2>
             <p><strong>Endpoint:</strong> <code>/api/Offer/{id}</code></p>
@@ -1360,7 +1356,7 @@ Host: [domen]
     <h2>32. GetOffersByDriverId</h2>
     <p><strong>Endpoint:</strong> <code>/api/Offer/DriverId</code></p>
     <p><strong>Metoda:</strong> GET</p>
-    <p><strong>Opis:</strong> Dohvata sve ponude koje su dodeljene određenom vozaču na osnovu ID-a vozača.</p>
+    <p><strong>Opis:</strong> Dohvata sve ponude koje su dodeljene određenom vozaču na osnovu ID-a vozača. Ako ne postoje ponude za datog vozača, vraća status 404.</p>
     <h3>Parametri:</h3>
     <ul>
         <li><strong>driverId (int):</strong> Jedinstveni identifikator vozača. (Obavezno)</li>
@@ -1382,21 +1378,12 @@ Host: [domen]
     {
         "id": 2,
         "employer": {
-            "id": 1,
-            "username": "employer123",
-            "email": "employer@example.com",
-            "name": "Company XYZ",
-            "phone": "123-456-789",
-            "rating": 4.5
+            "id": 1
+            // Dodati dodatne informacije o poslodavcu ako su dostupne
         },
         "driver": {
-            "id": 1,
-            "username": "driver123",
-            "email": "driver@example.com",
-            "name": "John Doe",
-            "vehicle": "Tesla Model S",
-            "registration": "AB123CD",
-            "rating": 4.8
+            "id": 1
+            // Dodati dodatne informacije o vozaču ako su dostupne
         },
         "cargoName": "Težak teret",
         "cargoType": "Beton",
