@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +15,9 @@
             line-height: 1.6;
         }
 
-        h1, h2, h3 {
+        h1,
+        h2,
+        h3 {
             color: #5D5C61;
         }
 
@@ -55,6 +58,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h1>Maldo API Documentation</h1>
@@ -63,11 +67,13 @@
             <h2>1. TestConnection</h2>
             <p><strong>Endpoint:</strong> <code>/api/testconnection</code></p>
             <p><strong>Metoda:</strong> POST</p>
-            <p><strong>Opis:</strong> Ova funkcija služi za testiranje konekcije sa bazom podataka. Ukoliko je konekcija uspešna, vraća poruku "Connection successful". U suprotnom, vraća poruku sa opisom greške.</p>
+            <p><strong>Opis:</strong> Ova funkcija služi za testiranje konekcije sa bazom podataka. Ukoliko je konekcija
+                uspešna, vraća poruku "Connection successful". U suprotnom, vraća poruku sa opisom greške.</p>
             <h3>Odgovori:</h3>
             <ul>
                 <li><strong>200 OK:</strong> Konekcija je uspešna. Vraća poruku "Connection successful".</li>
-                <li><strong>500 Internal Server Error:</strong> Greška prilikom konekcije. Vraća detaljan opis greške.</li>
+                <li><strong>500 Internal Server Error:</strong> Greška prilikom konekcije. Vraća detaljan opis greške.
+                </li>
             </ul>
             <h3>Primer korišćenja:</h3>
             <pre class="code-example">
@@ -86,7 +92,8 @@ Host: [domen]
             <h2>2. AddEmployer</h2>
             <p><strong>Endpoint:</strong> <code>/api/Employer/Add</code></p>
             <p><strong>Metoda:</strong> POST</p>
-            <p><strong>Opis:</strong> Ova funkcija dodaje novog poslodavca u bazu podataka. Funkcija očekuje JSON objekat koji sadrži korisničko ime, lozinku, email, naziv firme i broj telefona poslodavca.</p>
+            <p><strong>Opis:</strong> Ova funkcija dodaje novog poslodavca u bazu podataka. Funkcija očekuje JSON
+                objekat koji sadrži korisničko ime, lozinku, email, naziv firme i broj telefona poslodavca.</p>
             <h3>Telo zahteva (Body):</h3>
             <ul>
                 <li><strong>username (string):</strong> Korisničko ime poslodavca. (Obavezno)</li>
@@ -98,7 +105,8 @@ Host: [domen]
             <h3>Odgovori:</h3>
             <ul>
                 <li><strong>200 OK:</strong> Poslodavac je uspešno dodat. Vraća poruku "Success".</li>
-                <li><strong>400 Bad Request:</strong> Nevalidan unos ili nedostaju neka od obaveznih polja. Vraća poruku sa opisom greške.</li>
+                <li><strong>400 Bad Request:</strong> Nevalidan unos ili nedostaju neka od obaveznih polja. Vraća poruku
+                    sa opisom greške.</li>
             </ul>
             <h3>Primer korišćenja:</h3>
             <pre class="code-example">
@@ -120,14 +128,16 @@ Content-Type: application/json
     "message": "Success"
 }
             </pre>
-            <p><strong>Napomena:</strong> Ukoliko korisničko ime već postoji u bazi, funkcija će vratiti status 400 sa porukom "Username already exists".</p>
+            <p><strong>Napomena:</strong> Ukoliko korisničko ime već postoji u bazi, funkcija će vratiti status 400 sa
+                porukom "Username already exists".</p>
         </div>
 
         <div class="endpoint">
             <h2>3. UpdateEmployer</h2>
             <p><strong>Endpoint:</strong> <code>/api/Employer/{id}</code></p>
             <p><strong>Metoda:</strong> PUT</p>
-            <p><strong>Opis:</strong> Ova funkcija služi za ažuriranje podataka o poslodavcu u bazi podataka. Korisnik može ažurirati korisničko ime, lozinku, email, naziv firme i broj telefona poslodavca.</p>
+            <p><strong>Opis:</strong> Ova funkcija služi za ažuriranje podataka o poslodavcu u bazi podataka. Korisnik
+                može ažurirati korisničko ime, lozinku, email, naziv firme i broj telefona poslodavca.</p>
             <h3>Parametri:</h3>
             <ul>
                 <li><strong>id (int):</strong> Jedinstveni identifikator poslodavca koji se ažurira. (Obavezno)</li>
@@ -142,9 +152,12 @@ Content-Type: application/json
             </ul>
             <h3>Odgovori:</h3>
             <ul>
-                <li><strong>200 OK:</strong> Podaci o poslodavcu su uspešno ažurirani. Vraća poruku "Employer successfully updated."</li>
-                <li><strong>400 Bad Request:</strong> Nevalidan unos ili nedostaju podaci. Vraća poruku sa opisom greške.</li>
-                <li><strong>500 Internal Server Error:</strong> Greška prilikom ažuriranja podataka. Vraća detaljan opis greške.</li>
+                <li><strong>200 OK:</strong> Podaci o poslodavcu su uspešno ažurirani. Vraća poruku "Employer
+                    successfully updated."</li>
+                <li><strong>400 Bad Request:</strong> Nevalidan unos ili nedostaju podaci. Vraća poruku sa opisom
+                    greške.</li>
+                <li><strong>500 Internal Server Error:</strong> Greška prilikom ažuriranja podataka. Vraća detaljan opis
+                    greške.</li>
             </ul>
             <h3>Primer korišćenja:</h3>
             <pre class="code-example">
@@ -167,12 +180,13 @@ Content-Type: application/json
         }
             </pre>
         </div>
-        
+
         <div class="endpoint">
             <h2>4. CheckLoginEmployer</h2>
             <p><strong>Endpoint:</strong> <code>/api/Employer/CheckLogin</code></p>
             <p><strong>Metoda:</strong> POST</p>
-            <p><strong>Opis:</strong> Ova funkcija proverava kredencijale poslodavca (korisničko ime i lozinku) i vraća podatke o poslodavcu ako su kredencijali ispravni.</p>
+            <p><strong>Opis:</strong> Ova funkcija proverava kredencijale poslodavca (korisničko ime i lozinku) i vraća
+                podatke o poslodavcu ako su kredencijali ispravni.</p>
             <h3>Telo zahteva (Body):</h3>
             <ul>
                 <li><strong>username (string):</strong> Korisničko ime poslodavca. (Obavezno)</li>
@@ -181,7 +195,8 @@ Content-Type: application/json
             <h3>Odgovori:</h3>
             <ul>
                 <li><strong>200 OK:</strong> Kredencijali su ispravni. Vraća podatke o poslodavcu u JSON formatu.</li>
-                <li><strong>400 Bad Request:</strong> Nevalidno korisničko ime ili lozinka. Vraća poruku "Invalid username or password."</li>
+                <li><strong>400 Bad Request:</strong> Nevalidno korisničko ime ili lozinka. Vraća poruku "Invalid
+                    username or password."</li>
                 <li><strong>404 Not Found:</strong> Poslodavac nije pronađen. Vraća poruku "Employer not found."</li>
             </ul>
             <h3>Primer korišćenja:</h3>
@@ -206,12 +221,13 @@ Content-Type: application/json
         }
             </pre>
         </div>
-        
+
         <div class="endpoint">
             <h2>5. GetEmployerById</h2>
             <p><strong>Endpoint:</strong> <code>/api/Employer/{id}</code></p>
             <p><strong>Metoda:</strong> GET</p>
-            <p><strong>Opis:</strong> Ova funkcija vraća podatke o poslodavcu na osnovu njegovog ID-a. Pored osnovnih podataka o poslodavcu, vraća i ukupnu ocenu i broj ocena za tog poslodavca.</p>
+            <p><strong>Opis:</strong> Ova funkcija vraća podatke o poslodavcu na osnovu njegovog ID-a. Pored osnovnih
+                podataka o poslodavcu, vraća i ukupnu ocenu i broj ocena za tog poslodavca.</p>
             <h3>Parametri:</h3>
             <ul>
                 <li><strong>id (int):</strong> Jedinstveni identifikator poslodavca. (Obavezno)</li>
@@ -239,7 +255,7 @@ Content-Type: application/json
         }
             </pre>
         </div>
-        
+
         <div class="endpoint">
             <h2>6. AddEmployerRating</h2>
             <p><strong>Endpoint:</strong> <code>/api/EmployerRating/Add</code></p>
@@ -249,14 +265,17 @@ Content-Type: application/json
             <ul>
                 <li><strong>employerId (int):</strong> Jedinstveni identifikator poslodavca. (Obavezno)</li>
                 <li><strong>driverId (int):</strong> Jedinstveni identifikator vozača koji daje ocenu. (Obavezno)</li>
-                <li><strong>rating (int):</strong> Ocena koju vozač dodeljuje poslodavcu (npr. od 1 do 5). (Obavezno)</li>
+                <li><strong>rating (int):</strong> Ocena koju vozač dodeljuje poslodavcu (npr. od 1 do 5). (Obavezno)
+                </li>
                 <li><strong>comment (string):</strong> Komentar koji vozač ostavlja uz ocenu. (Obavezno)</li>
             </ul>
             <h3>Odgovori:</h3>
             <ul>
                 <li><strong>200 OK:</strong> Ocena je uspešno dodata. Vraća poruku "Rating successfully added."</li>
-                <li><strong>400 Bad Request:</strong> Nedostaju podaci ili su nevalidni. Vraća poruku "Missing or invalid input."</li>
-                <li><strong>500 Internal Server Error:</strong> Greška prilikom dodavanja ocene. Vraća detaljan opis greške.</li>
+                <li><strong>400 Bad Request:</strong> Nedostaju podaci ili su nevalidni. Vraća poruku "Missing or
+                    invalid input."</li>
+                <li><strong>500 Internal Server Error:</strong> Greška prilikom dodavanja ocene. Vraća detaljan opis
+                    greške.</li>
             </ul>
             <h3>Primer korišćenja:</h3>
             <pre class="code-example">
@@ -306,12 +325,13 @@ Content-Type: application/json
         }
             </pre>
         </div>
-        
+
         <div class="endpoint">
             <h2>8. GetEmployerRatingsByEmployerId</h2>
             <p><strong>Endpoint:</strong> <code>/api/EmployerRating/Employer/{employerId}</code></p>
             <p><strong>Metoda:</strong> GET</p>
-            <p><strong>Opis:</strong> Ova funkcija vraća sve ocene koje su vozači dodelili poslodavcu na osnovu ID-a poslodavca. Svaka ocena sadrži informacije o poslodavcu i vozaču.</p>
+            <p><strong>Opis:</strong> Ova funkcija vraća sve ocene koje su vozači dodelili poslodavcu na osnovu ID-a
+                poslodavca. Svaka ocena sadrži informacije o poslodavcu i vozaču.</p>
             <h3>Parametri:</h3>
             <ul>
                 <li><strong>employerId (int):</strong> Jedinstveni identifikator poslodavca. (Obavezno)</li>
@@ -356,12 +376,13 @@ Content-Type: application/json
         ]
             </pre>
         </div>
-        
+
         <div class="endpoint">
             <h2>9. GetEmployerRatingsByDriverId</h2>
             <p><strong>Endpoint:</strong> <code>/api/EmployerRating/Driver/{driverId}</code></p>
             <p><strong>Metoda:</strong> GET</p>
-            <p><strong>Opis:</strong> Ova funkcija vraća sve ocene koje su poslodavci dodelili vozaču na osnovu ID-a vozača. Svaka ocena sadrži informacije o poslodavcu i vozaču.</p>
+            <p><strong>Opis:</strong> Ova funkcija vraća sve ocene koje su poslodavci dodelili vozaču na osnovu ID-a
+                vozača. Svaka ocena sadrži informacije o poslodavcu i vozaču.</p>
             <h3>Parametri:</h3>
             <ul>
                 <li><strong>driverId (int):</strong> Jedinstveni identifikator vozača. (Obavezno)</li>
@@ -406,12 +427,13 @@ Content-Type: application/json
         ]
             </pre>
         </div>
-        
+
         <div class="endpoint">
             <h2>10. GetRequestsByEmployerId</h2>
             <p><strong>Endpoint:</strong> <code>/api/Requests/Employer/{employerId}</code></p>
             <p><strong>Metoda:</strong> GET</p>
-            <p><strong>Opis:</strong> Ova funkcija vraća sve zahteve poslodavca na osnovu ID-a poslodavca. Svaki zahtev sadrži detalje o vozaču, teretu i ponudi.</p>
+            <p><strong>Opis:</strong> Ova funkcija vraća sve zahteve poslodavca na osnovu ID-a poslodavca. Svaki zahtev
+                sadrži detalje o vozaču, poslodavcu i ponudi.</p>
             <h3>Parametri:</h3>
             <ul>
                 <li><strong>employerId (int):</strong> Jedinstveni identifikator poslodavca. (Obavezno)</li>
@@ -431,26 +453,38 @@ Content-Type: application/json
         [
           {
             "RequestId": 11,
-            "DriverId": 15,
-            "DriverUsername": "jale05",
-            "DriverEmail": "kecojevicjaksa@gmail.com",
-            "DriverName": "Jaksa",
-            "DriverVehicle": "Truck Model",
-            "DriverRegistration": "BG 1234 XY",
-            "DriverRating": 4.5,
-            "EmployerId": 1,
-            "OfferId": 141,
-            "CargoName": "Construction Material",
-            "CargoType": "Bricks",
-            "CargoWeight": 1500,
-            "CargoDimensions": "1.2m x 1m x 0.8m",
-            "DeparturePlace": "Belgrade",
-            "ArrivalPlace": "Novi Sad",
-            "DepartureDate": "2024-09-10",
-            "ArrivalDate": "2024-09-11",
-            "TripDuration": 1,
-            "AdditionalDescription": "Cargo must be covered during transport.",
-            "Price": 4000
+            "driver": {
+                "id": 15,
+                "username": "jale05",
+                "email": "kecojevicjaksa@gmail.com",
+                "name": "Jaksa",
+                "vehicle": "Truck Model",
+                "registration": "BG 1234 XY",
+                "rating": 4.5
+            },
+            "employer": {
+                "id": 1,
+                "username": "employerUser",
+                "email": "employer@example.com",
+                "name": "Example Company",
+                "phone": "123456789",
+                "rating": 4.5,
+                "totalRating": 10
+            },
+            "offer": {
+                "id": 141,
+                "cargoName": "Construction Material",
+                "cargoType": "Bricks",
+                "cargoWeight": 1500,
+                "cargoDimensions": "1.2m x 1m x 0.8m",
+                "departureLocation": "Belgrade",
+                "deliveryLocation": "Novi Sad",
+                "departureDate": "2024-09-10T00:00:00",
+                "arrivalDate": "2024-09-11T00:00:00",
+                "travelDuration": 1,
+                "additionalDescription": "Cargo must be covered during transport.",
+                "price": 4000
+            }
           }
         ]
             </pre>
@@ -460,7 +494,8 @@ Content-Type: application/json
             <h2>11. GetRequestsByDriverId</h2>
             <p><strong>Endpoint:</strong> <code>/api/Requests/Driver/{driverId}</code></p>
             <p><strong>Metoda:</strong> GET</p>
-            <p><strong>Opis:</strong> Ova funkcija vraća sve zahteve vozača na osnovu ID-a vozača. Svaki zahtev sadrži informacije o vozaču, poslodavcu i ponudi.</p>
+            <p><strong>Opis:</strong> Ova funkcija vraća sve zahteve vozača na osnovu ID-a vozača. Svaki zahtev sadrži
+                informacije o vozaču, poslodavcu i ponudi.</p>
             <h3>Parametri:</h3>
             <ul>
                 <li><strong>driverId (int):</strong> Jedinstveni identifikator vozača. (Obavezno)</li>
@@ -472,48 +507,48 @@ Content-Type: application/json
             </ul>
             <h3>Primer korišćenja:</h3>
             <pre class="code-example">
-        GET /api/Requests/Driver/1 HTTP/1.1
-        Host: [domen]
-            </pre>
+GET /api/Requests/Driver/1 HTTP/1.1
+Host: [domen]
+    </pre>
             <h3>Odgovor:</h3>
             <pre class="code-example">
-        [
-          {
-            "RequestId": 15,
-            "Driver": {
-              "DriverId": 1,
-              "DriverUsername": "okok",
-              "DriverEmail": "vukasin.teslic@gmail.com",
-              "DriverName": "Vukasin Teslic",
-              "DriverVehicle": "Citroen C4",
-              "DriverRegistration": "BG 1034 CG"
-            },
-            "Employer": {
-              "EmployerId": 1,
-              "EmployerUsername": "Vukasin",
-              "EmployerEmail": "vukasin@gmail",
-              "EmployerName": "Company Name",
-              "EmployerPhone": "123456"
-            },
-            "Offer": {
-              "OfferId": 98,
-              "CargoName": "Construction Material",
-              "CargoType": "Bricks",
-              "CargoWeight": 1100.8,
-              "CargoDimensions": "1.8m x 1.2m x 0.6m",
-              "DeparturePlace": "Belgrade",
-              "ArrivalPlace": "Novi Sad",
-              "DepartureDate": "2024-10-15",
-              "ArrivalDate": "2024-10-16",
-              "TripDuration": 1,
-              "AdditionalDescription": "Bricks for furniture production.",
-              "Price": 3900
-            }
-          }
-        ]
-            </pre>
+[
+  {
+    "RequestId": 15,
+    "driver": {
+        "id": 1,
+        "username": "okok",
+        "email": "vukasin.teslic@gmail.com",
+        "name": "Vukasin Teslic",
+        "vehicle": "Citroen C4",
+        "registration": "BG 1034 CG"
+    },
+    "employer": {
+        "id": 1,
+        "username": "Vukasin",
+        "email": "vukasin@gmail",
+        "name": "Company Name",
+        "phone": "123456"
+    },
+    "offer": {
+        "id": 98,
+        "cargoName": "Construction Material",
+        "cargoType": "Bricks",
+        "cargoWeight": 1100.8,
+        "cargoDimensions": "1.8m x 1.2m x 0.6m",
+        "departureLocation": "Belgrade",
+        "deliveryLocation": "Novi Sad",
+        "departureDate": "2024-10-15T00:00:00",
+        "arrivalDate": "2024-10-16T00:00:00",
+        "travelDuration": 1,
+        "additionalDescription": "Bricks for furniture production.",
+        "price": 3900
+    }
+  }
+]
+    </pre>
         </div>
-        
+
         <div class="endpoint">
             <h2>12. CheckRequestForOffer</h2>
             <p><strong>Endpoint:</strong> <code>/api/Request/Check</code></p>
@@ -526,7 +561,8 @@ Content-Type: application/json
             </ul>
             <h3>Odgovori:</h3>
             <ul>
-                <li><strong>200 OK:</strong> Vraća <code>true</code> ako zahtev postoji, ili <code>false</code> ako ne postoji.</li>
+                <li><strong>200 OK:</strong> Vraća <code>true</code> ako zahtev postoji, ili <code>false</code> ako ne
+                    postoji.</li>
                 <li><strong>500 Internal Server Error:</strong> Došlo je do greške prilikom provere zahteva.</li>
             </ul>
             <h3>Primer korišćenja:</h3>
@@ -539,7 +575,7 @@ Content-Type: application/json
         True
             </pre>
         </div>
-        
+
         <div class="endpoint">
             <h2>13. AddRequestForOffer</h2>
             <p><strong>Endpoint:</strong> <code>/api/Requests/Add</code></p>
@@ -576,7 +612,7 @@ Content-Type: application/json
         }
             </pre>
         </div>
-        
+
         <div class="endpoint">
             <h2>14. DeleteRequestForOffer</h2>
             <p><strong>Endpoint:</strong> <code>/api/Requests/{id}</code></p>
@@ -603,7 +639,7 @@ Content-Type: application/json
         }
             </pre>
         </div>
-        
+
         <div class="endpoint">
             <h2>15. AddDriver</h2>
             <p><strong>Endpoint:</strong> <code>/api/Driver/Add</code></p>
@@ -619,7 +655,8 @@ Content-Type: application/json
             <h3>Odgovori:</h3>
             <ul>
                 <li><strong>200 OK:</strong> Vozač je uspešno dodat.</li>
-                <li><strong>400 Bad Request:</strong> Nedostaju ili su neispravni neki od potrebnih parametara, ili korisničko ime već postoji.</li>
+                <li><strong>400 Bad Request:</strong> Nedostaju ili su neispravni neki od potrebnih parametara, ili
+                    korisničko ime već postoji.</li>
                 <li><strong>500 Internal Server Error:</strong> Došlo je do greške prilikom dodavanja vozača.</li>
             </ul>
             <h3>Primer korišćenja:</h3>
@@ -689,7 +726,7 @@ Content-Type: application/json
         }
             </pre>
         </div>
-        
+
         <div class="endpoint">
             <h2>17. UpdateDriverLocation</h2>
             <p><strong>Endpoint:</strong> <code>/api/Driver/UpdateLocation</code></p>
@@ -718,7 +755,7 @@ Content-Type: application/json
         }
             </pre>
         </div>
-        
+
         <div class="endpoint">
             <h2>18. CompleteRide</h2>
             <p><strong>Endpoint:</strong> <code>/api/Driver/CompleteRide</code></p>
@@ -731,7 +768,8 @@ Content-Type: application/json
             <h3>Odgovori:</h3>
             <ul>
                 <li><strong>200 OK:</strong> Status ponude je uspešno ažuriran na završen.</li>
-                <li><strong>500 Internal Server Error:</strong> Došlo je do greške prilikom ažuriranja statusa ponude.</li>
+                <li><strong>500 Internal Server Error:</strong> Došlo je do greške prilikom ažuriranja statusa ponude.
+                </li>
             </ul>
             <h3>Primer korišćenja:</h3>
             <pre class="code-example">
@@ -745,7 +783,7 @@ Content-Type: application/json
         }
             </pre>
         </div>
-        
+
         <div class="endpoint">
             <h2>19. GetLocationById</h2>
             <p><strong>Endpoint:</strong> <code>/api/Driver/Location/{id}</code></p>
@@ -774,12 +812,13 @@ Content-Type: application/json
         }
             </pre>
         </div>
-        
+
         <div class="endpoint">
             <h2>20. LoginCheckDriver</h2>
             <p><strong>Endpoint:</strong> <code>/api/Driver/LoginCheck</code></p>
             <p><strong>Metoda:</strong> POST</p>
-            <p><strong>Opis:</strong> Proverava da li su uneti korisničko ime i lozinka ispravni za vozača i vraća podatke o vozaču ako su podaci ispravni.</p>
+            <p><strong>Opis:</strong> Proverava da li su uneti korisničko ime i lozinka ispravni za vozača i vraća
+                podatke o vozaču ako su podaci ispravni.</p>
             <h3>Telo zahteva (Body):</h3>
             <ul>
                 <li><strong>username (string):</strong> Korisničko ime vozača. (Obavezno)</li>
@@ -821,7 +860,8 @@ Content-Type: application/json
             <h2>21. GetDriverById</h2>
             <p><strong>Endpoint:</strong> <code>/api/Driver/{id}</code></p>
             <p><strong>Metoda:</strong> GET</p>
-            <p><strong>Opis:</strong> Dohvata podatke o vozaču na osnovu ID-a vozača, uključujući broj vožnji, ukupnu zaradu, ukupan broj ocena, i ponude vozača.</p>
+            <p><strong>Opis:</strong> Dohvata podatke o vozaču na osnovu ID-a vozača, uključujući broj vožnji, ukupnu
+                zaradu, ukupan broj ocena, i ponude vozača.</p>
             <h3>Parametri:</h3>
             <ul>
                 <li><strong>id (int):</strong> Jedinstveni identifikator vozača. (Obavezno)</li>
@@ -830,7 +870,8 @@ Content-Type: application/json
             <ul>
                 <li><strong>200 OK:</strong> Uspešno dohvaćeni podaci o vozaču.</li>
                 <li><strong>404 Not Found:</strong> Vozač nije pronađen.</li>
-                <li><strong>500 Internal Server Error:</strong> Došlo je do greške prilikom dohvatanja podataka o vozaču.</li>
+                <li><strong>500 Internal Server Error:</strong> Došlo je do greške prilikom dohvatanja podataka o
+                    vozaču.</li>
             </ul>
             <h3>Primer korišćenja:</h3>
             <pre class="code-example">
@@ -868,7 +909,7 @@ Content-Type: application/json
         }
             </pre>
         </div>
-        
+
         <div class="endpoint">
             <h2>22. AddDriverRating</h2>
             <p><strong>Endpoint:</strong> <code>/api/DriverRating/Add</code></p>
@@ -907,7 +948,7 @@ Content-Type: application/json
         }
             </pre>
         </div>
-        
+
         <div class="endpoint">
             <h2>23. DeleteDriverRating</h2>
             <p><strong>Endpoint:</strong> <code>/api/DriverRating</code></p>
@@ -934,7 +975,7 @@ Content-Type: application/json
         }
             </pre>
         </div>
-        
+
         <div class="endpoint">
             <h2>24. GetRatingsByDriverId</h2>
             <p><strong>Endpoint:</strong> <code>/api/DriverRating/Driver/{driverId}</code></p>
@@ -962,30 +1003,28 @@ Content-Type: application/json
                 "rating": 5,
                 "comment": "Odličan vozač",
                 "employer": {
-                    "EmployerId": 1,
-                    "EmployerUsername": "employer123",
-                    "EmployerPassword": "pass123",
-                    "EmployerEmail": "employer@example.com",
-                    "EmployerName": "Company XYZ",
-                    "EmployerPhone": "123-456-789",
-                    "EmployerRating": 4.7
+                    "id": 1,
+                    "username": "employer123",
+                    "email": "employer@example.com",
+                    "name": "Company XYZ",
+                    "phone": "123-456-789",
+                    "rating": 4.7
                 },
                 "driver": {
-                    "DriverId": 1,
-                    "DriverUsername": "driver123",
-                    "DriverPassword": "pass456",
-                    "DriverEmail": "driver@example.com",
-                    "DriverName": "John Doe",
-                    "DriverVehicle": "Tesla Model S",
-                    "DriverRegistration": "AB123CD",
-                    "DriverPicture": "base64_encoded_image",
-                    "DriverRating": 4.8
+                    "id": 1,
+                    "username": "driver123",
+                    "email": "driver@example.com",
+                    "name": "John Doe",
+                    "vehicle": "Tesla Model S",
+                    "registration": "AB123CD",
+                    "picture": "base64_encoded_image",
+                    "rating": 4.8
                 }
             }
         ]
             </pre>
         </div>
-        
+
         <div class="endpoint">
             <h2>25. GetRatingsByEmployerId</h2>
             <p><strong>Endpoint:</strong> <code>/api/DriverRating/Employer/{employerId}</code></p>
@@ -1013,24 +1052,22 @@ Content-Type: application/json
                 "rating": 4,
                 "comment": "Dobar poslodavac",
                 "employer": {
-                    "EmployerId": 1,
-                    "EmployerUsername": "employer123",
-                    "EmployerPassword": "pass123",
-                    "EmployerEmail": "employer@example.com",
-                    "EmployerName": "Company XYZ",
-                    "EmployerPhone": "123-456-789",
-                    "EmployerRating": 4.7
+                    "id": 1,
+                    "username": "employer123",
+                    "email": "employer@example.com",
+                    "name": "Company XYZ",
+                    "phone": "123-456-789",
+                    "rating": 4.7
                 },
                 "driver": {
-                    "DriverId": 1,
-                    "DriverUsername": "driver123",
-                    "DriverPassword": "pass456",
-                    "DriverEmail": "driver@example.com",
-                    "DriverName": "John Doe",
-                    "DriverVehicle": "Tesla Model S",
-                    "DriverRegistration": "AB123CD",
-                    "DriverPicture": "base64_encoded_image",
-                    "DriverRating": 4.8
+                    "id": 1,
+                    "username": "driver123",
+                    "email": "driver@example.com",
+                    "name": "John Doe",
+                    "vehicle": "Tesla Model S",
+                    "registration": "AB123CD",
+                    "picture": "base64_encoded_image",
+                    "rating": 4.8
                 }
             }
         ]
@@ -1089,7 +1126,7 @@ Content-Type: application/json
         }
             </pre>
         </div>
-        
+
         <div class="endpoint">
             <h2>27. DeleteOfferById</h2>
             <p><strong>Endpoint:</strong> <code>/api/Offer</code></p>
@@ -1117,7 +1154,7 @@ Content-Type: application/json
         }
             </pre>
         </div>
-        
+
         <div class="endpoint">
             <h2>28. GetAllOffers</h2>
             <p><strong>Endpoint:</strong> <code>/api/Offer/GetAll</code></p>
@@ -1158,7 +1195,7 @@ Content-Type: application/json
         ]
             </pre>
         </div>
-        
+
         <div class="endpoint">
             <h2>29. GetOffersWithoutDriver</h2>
             <p><strong>Endpoint:</strong> <code>/api/Offer/GetWithoutDriver</code></p>
@@ -1225,7 +1262,6 @@ Content-Type: application/json
             "employer": {
                 "id": 1,
                 "username": "employer123",
-                "password": "password123",
                 "email": "employer@example.com",
                 "name": "Company XYZ",
                 "phone": "123-456-789",
@@ -1235,7 +1271,6 @@ Content-Type: application/json
             "driver": {
                 "id": 1,
                 "username": "driver123",
-                "password": "password456",
                 "email": "driver@example.com",
                 "name": "John Doe",
                 "vehicle": "Tesla Model S",
@@ -1259,99 +1294,129 @@ Content-Type: application/json
         }
             </pre>
         </div>
-        
-        <div class="endpoint">
-            <h2>31. GetOffersByEmployerID</h2>
-            <p><strong>Endpoint:</strong> <code>/api/Offer/EmployerID</code></p>
-            <p><strong>Metoda:</strong> GET</p>
-            <p><strong>Opis:</strong> Dohvata sve ponude koje pripadaju određenom poslodavcu na osnovu ID-a poslodavca.</p>
-            <h3>Parametri:</h3>
-            <ul>
-                <li><strong>employer_id (int):</strong> Jedinstveni identifikator poslodavca. (Obavezno)</li>
-            </ul>
-            <h3>Odgovori:</h3>
-            <ul>
-                <li><strong>200 OK:</strong> Uspešno dohvaćene ponude.</li>
-                <li><strong>404 Not Found:</strong> Ponude za datog poslodavca nisu pronađene.</li>
-                <li><strong>500 Internal Server Error:</strong> Došlo je do greške prilikom dohvatanja ponuda.</li>
-            </ul>
-            <h3>Primer korišćenja:</h3>
-            <pre class="code-example">
-        GET /api/Offer/EmployerID?employer_id=1 HTTP/1.1
-        Host: [domen]
-            </pre>
-            <h3>Odgovor:</h3>
-            <pre class="code-example">
-        [
-            {
-                "Id": 1,
-                "EmployerId": 1,
-                "DriverId": 2,
-                "CargoName": "Gradevinski materijal",
-                "CargoType": "Cigle",
-                "CargoWeight": 1500.00,
-                "CargoDimensions": "1.2m x 1m x 0.8m",
-                "DepartureDate": "2024-08-10T00:00:00",
-                "DeliveryDate": "2024-08-11T00:00:00",
-                "TravelDuration": 1,
-                "AdditionalDescription": "Teret mora biti prekriven tokom transporta.",
-                "Price": 5000.00,
-                "DepartureLocation": "Beograd",
-                "DeliveryLocation": "Novi Sad",
-                "CreationDate": "2024-08-01T12:00:00",
-                "Status": 1
-            },
-            ...
-        ]
-            </pre>
-        </div>
 
         <div class="endpoint">
-            <h2>32. GetOffersByDriverId</h2>
-            <p><strong>Endpoint:</strong> <code>/api/Offer/DriverId</code></p>
-            <p><strong>Metoda:</strong> GET</p>
-            <p><strong>Opis:</strong> Dohvata sve ponude koje su dodeljene određenom vozaču na osnovu ID-a vozača.</p>
-            <h3>Parametri:</h3>
-            <ul>
-                <li><strong>driverId (int):</strong> Jedinstveni identifikator vozača. (Obavezno)</li>
-            </ul>
-            <h3>Odgovori:</h3>
-            <ul>
-                <li><strong>200 OK:</strong> Uspešno dohvaćene ponude.</li>
-                <li><strong>404 Not Found:</strong> Ponude za datog vozača nisu pronađene.</li>
-                <li><strong>500 Internal Server Error:</strong> Došlo je do greške prilikom dohvatanja ponuda.</li>
-            </ul>
-            <h3>Primer korišćenja:</h3>
-            <pre class="code-example">
-        GET /api/Offer/DriverId?driverId=1 HTTP/1.1
-        Host: [domen]
-            </pre>
-            <h3>Odgovor:</h3>
-            <pre class="code-example">
-        [
-            {
-                "Id": 2,
-                "EmployerId": 1,
-                "DriverId": 1,
-                "CargoName": "Težak teret",
-                "CargoType": "Beton",
-                "CargoWeight": 1000.40,
-                "CargoDimensions": "2m x 1m x 1m",
-                "DepartureDate": "2024-08-10T00:00:00",
-                "DeliveryDate": "2024-08-11T00:00:00",
-                "TravelDuration": 1,
-                "AdditionalDescription": "Transport mora biti pažljiv.",
-                "Price": 7000.00,
-                "DepartureLocation": "Beograd",
-                "DeliveryLocation": "Niš",
-                "CreationDate": "2024-08-01T12:00:00",
-                "Status": 1
-            },
-            ...
-        ]
-            </pre>
-        </div>
-        
+    <h2>31. GetOffersByEmployerID</h2>
+    <p><strong>Endpoint:</strong> <code>/api/Offer/EmployerID</code></p>
+    <p><strong>Metoda:</strong> GET</p>
+    <p><strong>Opis:</strong> Dohvata sve ponude koje pripadaju određenom poslodavcu na osnovu ID-a poslodavca.</p>
+    <h3>Parametri:</h3>
+    <ul>
+        <li><strong>employer_id (int):</strong> Jedinstveni identifikator poslodavca. (Obavezno)</li>
+    </ul>
+    <h3>Odgovori:</h3>
+    <ul>
+        <li><strong>200 OK:</strong> Uspešno dohvaćene ponude.</li>
+        <li><strong>404 Not Found:</strong> Ponude za datog poslodavca nisu pronađene.</li>
+        <li><strong>500 Internal Server Error:</strong> Došlo je do greške prilikom dohvatanja ponuda.</li>
+    </ul>
+    <h3>Primer korišćenja:</h3>
+    <pre class="code-example">
+GET /api/Offer/EmployerID?employer_id=1 HTTP/1.1
+Host: [domen]
+    </pre>
+    <h3>Odgovor:</h3>
+    <pre class="code-example">
+[
+    {
+        "Id": 1,
+        "employer": {
+            "id": 1,
+            "username": "employer123",
+            "email": "employer@example.com",
+            "name": "Company XYZ",
+            "phone": "123-456-789",
+            "rating": 4.5
+        },
+        "driver": {
+            "id": 2,
+            "username": "driver123",
+            "email": "driver@example.com",
+            "name": "John Doe",
+            "vehicle": "Tesla Model S",
+            "registration": "AB123CD",
+            "rating": 4.8
+        },
+        "CargoName": "Gradevinski materijal",
+        "CargoType": "Cigle",
+        "CargoWeight": 1500.00,
+        "CargoDimensions": "1.2m x 1m x 0.8m",
+        "DepartureDate": "2024-08-10T00:00:00",
+        "DeliveryDate": "2024-08-11T00:00:00",
+        "TravelDuration": 1,
+        "AdditionalDescription": "Teret mora biti prekriven tokom transporta.",
+        "Price": 5000.00,
+        "DepartureLocation": "Beograd",
+        "DeliveryLocation": "Novi Sad",
+        "CreationDate": "2024-08-01T12:00:00",
+        "Status": 1
+    },
+    ...
+]
+    </pre>
+</div>
+
+<div class="endpoint">
+    <h2>32. GetOffersByDriverId</h2>
+    <p><strong>Endpoint:</strong> <code>/api/Offer/DriverId</code></p>
+    <p><strong>Metoda:</strong> GET</p>
+    <p><strong>Opis:</strong> Dohvata sve ponude koje su dodeljene određenom vozaču na osnovu ID-a vozača.</p>
+    <h3>Parametri:</h3>
+    <ul>
+        <li><strong>driverId (int):</strong> Jedinstveni identifikator vozača. (Obavezno)</li>
+    </ul>
+    <h3>Odgovori:</h3>
+    <ul>
+        <li><strong>200 OK:</strong> Uspešno dohvaćene ponude.</li>
+        <li><strong>404 Not Found:</strong> Ponude za datog vozača nisu pronađene.</li>
+        <li><strong>500 Internal Server Error:</strong> Došlo je do greške prilikom dohvatanja ponuda.</li>
+    </ul>
+    <h3>Primer korišćenja:</h3>
+    <pre class="code-example">
+GET /api/Offer/DriverId?driverId=1 HTTP/1.1
+Host: [domen]
+    </pre>
+    <h3>Odgovor:</h3>
+    <pre class="code-example">
+[
+    {
+        "id": 2,
+        "employer": {
+            "id": 1,
+            "username": "employer123",
+            "email": "employer@example.com",
+            "name": "Company XYZ",
+            "phone": "123-456-789",
+            "rating": 4.5
+        },
+        "driver": {
+            "id": 1,
+            "username": "driver123",
+            "email": "driver@example.com",
+            "name": "John Doe",
+            "vehicle": "Tesla Model S",
+            "registration": "AB123CD",
+            "rating": 4.8
+        },
+        "cargoName": "Težak teret",
+        "cargoType": "Beton",
+        "cargoWeight": 1000.40,
+        "cargoDimensions": "2m x 1m x 1m",
+        "departureDate": "2024-08-10T00:00:00",
+        "deliveryDate": "2024-08-11T00:00:00",
+        "travelDuration": 1,
+        "additionalDescription": "Transport mora biti pažljiv.",
+        "price": 7000.00,
+        "departureLocation": "Beograd",
+        "deliveryLocation": "Niš",
+        "creationDate": "2024-08-01T12:00:00",
+        "status": 1
+    },
+    ...
+]
+    </pre>
+</div>
+
         <div class="endpoint">
             <h2>33. UpdateDriverId</h2>
             <p><strong>Endpoint:</strong> <code>/api/Offer/DriverId</code></p>
@@ -1365,7 +1430,8 @@ Content-Type: application/json
             <h3>Odgovori:</h3>
             <ul>
                 <li><strong>200 OK:</strong> Vozač i status ponude su uspešno ažurirani.</li>
-                <li><strong>500 Internal Server Error:</strong> Došlo je do greške prilikom ažuriranja vozača i statusa ponude.</li>
+                <li><strong>500 Internal Server Error:</strong> Došlo je do greške prilikom ažuriranja vozača i statusa
+                    ponude.</li>
             </ul>
             <h3>Primer korišćenja:</h3>
             <pre class="code-example">
@@ -1379,7 +1445,7 @@ Content-Type: application/json
         }
             </pre>
         </div>
-        
+
         <div class="endpoint">
             <h2>34. RemoveDriverId</h2>
             <p><strong>Endpoint:</strong> <code>/api/Offer/DriverId</code></p>
@@ -1392,7 +1458,8 @@ Content-Type: application/json
             <h3>Odgovori:</h3>
             <ul>
                 <li><strong>200 OK:</strong> Vozač je uspešno uklonjen iz ponude.</li>
-                <li><strong>500 Internal Server Error:</strong> Došlo je do greške prilikom uklanjanja vozača iz ponude.</li>
+                <li><strong>500 Internal Server Error:</strong> Došlo je do greške prilikom uklanjanja vozača iz ponude.
+                </li>
             </ul>
             <h3>Primer korišćenja:</h3>
             <pre class="code-example">
@@ -1406,13 +1473,14 @@ Content-Type: application/json
         }
             </pre>
         </div>
-        
+
 
 
 
     </div>
 
-    
+
 
 </body>
+
 </html>
