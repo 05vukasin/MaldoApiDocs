@@ -93,13 +93,13 @@ Host: [domen]
             <p><strong>Endpoint:</strong> <code>/api/Employer/Add</code></p>
             <p><strong>Metoda:</strong> POST</p>
             <p><strong>Opis:</strong> Ova funkcija dodaje novog poslodavca u bazu podataka. Funkcija očekuje JSON
-                objekat koji sadrži korisničko ime, lozinku, email, naziv firme i broj telefona poslodavca.</p>
+                objekat koji sadrži korisničko ime, lozinku, email, naziv poslodavca i broj telefona.</p>
             <h3>Telo zahteva (Body):</h3>
             <ul>
                 <li><strong>username (string):</strong> Korisničko ime poslodavca. (Obavezno)</li>
                 <li><strong>password (string):</strong> Lozinka poslodavca. (Obavezno)</li>
                 <li><strong>email (string):</strong> Email adresa poslodavca. (Obavezno)</li>
-                <li><strong>name (string):</strong> Naziv firme poslodavca. (Obavezno)</li>
+                <li><strong>name (string):</strong> Naziv poslodavca. (Obavezno)</li>
                 <li><strong>phone (string):</strong> Broj telefona poslodavca. (Obavezno)</li>
             </ul>
             <h3>Odgovori:</h3>
@@ -110,27 +110,28 @@ Host: [domen]
             </ul>
             <h3>Primer korišćenja:</h3>
             <pre class="code-example">
-POST /api/Employer/Add HTTP/1.1
-Host: [domen]
-Content-Type: application/json
-
-{
-    "username": "exampleUser",
-    "password": "examplePass",
-    "email": "example@example.com",
-    "name": "Example Company",
-    "phone": "123456789"
-}
+        POST /api/Employer/Add HTTP/1.1
+        Host: [domen]
+        Content-Type: application/json
+        
+        {
+            "username": "exampleUser",
+            "password": "examplePass",
+            "email": "example@example.com",
+            "name": "Example Company",
+            "phone": "123456789"
+        }
             </pre>
             <h3>Odgovor:</h3>
             <pre class="code-example">
-{
-    "message": "Success"
-}
+        {
+            "message": "Success"
+        }
             </pre>
             <p><strong>Napomena:</strong> Ukoliko korisničko ime već postoji u bazi, funkcija će vratiti status 400 sa
                 porukom "Username already exists".</p>
         </div>
+        
 
         <div class="endpoint">
             <h2>3. UpdateEmployer</h2>
