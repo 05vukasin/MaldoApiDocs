@@ -1535,7 +1535,296 @@ Host: [domen]
             </pre>
         </div>
 
+        <div class="endpoint">
+            <h2>35. AddAdmin</h2>
+            <p><strong>Endpoint:</strong> <code>/api/Admin/Add</code></p>
+            <p><strong>Metoda:</strong> POST</p>
+            <p><strong>Opis:</strong> Dodaje novog admina u sistem.</p>
+            <h3>Parametri:</h3>
+            <ul>
+                <li><strong>username (string):</strong> Korisničko ime za admina. (Obavezno)</li>
+                <li><strong>password (string):</strong> Lozinka za admina. (Obavezno)</li>
+                <li><strong>email (string):</strong> Email adresa admina. (Obavezno)</li>
+                <li><strong>ime (string):</strong> Ime admina. (Obavezno)</li>
+            </ul>
+            <h3>Odgovori:</h3>
+            <ul>
+                <li><strong>200 OK:</strong> Admin uspešno dodat.</li>
+                <li><strong>400 Bad Request:</strong> Nevalidan unos podataka.</li>
+                <li><strong>500 Internal Server Error:</strong> Došlo je do greške prilikom dodavanja admina.</li>
+            </ul>
+            <h3>Primer korišćenja:</h3>
+            <pre class="code-example">
+        POST /api/Admin/Add HTTP/1.1
+        Host: [domen]
+        Content-Type: application/json
+        {
+        "username": "admin123",
+        "password": "password123",
+        "email": "admin@example.com",
+        "ime": "Admin Ime"
+        }
+        </pre>
+        <h3>Odgovor:</h3>
+        <pre class="code-example">
+        {
+        "message": "Success"
+        }
+        </pre>
+        
+        </div>
 
+        <div class="endpoint">
+            <h2>36. UpdateAdmin</h2>
+            <p><strong>Endpoint:</strong> <code>/api/Admin/{id}</code></p>
+            <p><strong>Metoda:</strong> PUT</p>
+            <p><strong>Opis:</strong> Ažurira informacije o adminu na osnovu ID-a.</p>
+            <h3>Parametri:</h3>
+            <ul>
+                <li><strong>id (int):</strong> Jedinstveni identifikator admina. (Obavezno)</li>
+                <li><strong>username (string):</strong> Korisničko ime za admina. (Opcionalno)</li>
+                <li><strong>password (string):</strong> Lozinka za admina. (Opcionalno)</li>
+                <li><strong>email (string):</strong> Email adresa admina. (Opcionalno)</li>
+                <li><strong>ime (string):</strong> Ime admina. (Opcionalno)</li>
+            </ul>
+            <h3>Odgovori:</h3>
+            <ul>
+                <li><strong>200 OK:</strong> Admin uspešno ažuriran.</li>
+                <li><strong>400 Bad Request:</strong> Nevalidan unos podataka.</li>
+                <li><strong>500 Internal Server Error:</strong> Došlo je do greške prilikom ažuriranja admina.</li>
+            </ul>
+            <h3>Primer korišćenja:</h3>
+            <pre class="code-example">
+        PUT /api/Admin/1 HTTP/1.1
+        Host: [domen]
+        Content-Type: application/json
+        {
+        "username": "newAdminUsername",
+        "password": "newPassword123",
+        "email": "newadmin@example.com",
+        "ime": "New Admin Ime"
+        }
+        </pre>
+        <h3>Odgovor:</h3>
+        <pre class="code-example">
+        {
+        "message": "Admin successfully updated."
+        }
+        </pre>
+        
+        </div>
+
+        <div class="endpoint">
+            <h2>37. GetAdminById</h2>
+            <p><strong>Endpoint:</strong> <code>/api/Admin/{id}</code></p>
+            <p><strong>Metoda:</strong> GET</p>
+            <p><strong>Opis:</strong> Dohvata informacije o adminu na osnovu ID-a.</p>
+            <h3>Parametri:</h3>
+            <ul>
+                <li><strong>id (int):</strong> Jedinstveni identifikator admina. (Obavezno)</li>
+            </ul>
+            <h3>Odgovori:</h3>
+            <ul>
+                <li><strong>200 OK:</strong> Uspešno dohvaćene informacije o adminu.</li>
+                <li><strong>404 Not Found:</strong> Admin sa datim ID-om nije pronađen.</li>
+                <li><strong>500 Internal Server Error:</strong> Došlo je do greške prilikom dohvatanja informacija o adminu.</li>
+            </ul>
+            <h3>Primer korišćenja:</h3>
+            <pre class="code-example">
+        GET /api/Admin/1 HTTP/1.1
+        Host: [domen]
+            </pre>
+            <h3>Odgovor:</h3>
+            <pre class="code-example">
+        {
+            "Id": 1,
+            "Username": "admin123",
+            "Email": "admin@example.com",
+            "Ime": "Admin Ime",
+            "PoslodavacId": null
+        }
+            </pre>
+        </div>
+
+        <div class="endpoint">
+            <h2>38. AddDriverToAdmin</h2>
+            <p><strong>Endpoint:</strong> <code>/api/Admin/{adminId}/AddDriver</code></p>
+            <p><strong>Metoda:</strong> POST</p>
+            <p><strong>Opis:</strong> Dodaje vozača pod upravljanje određenog admina.</p>
+            <h3>Parametri:</h3>
+            <ul>
+                <li><strong>adminId (int):</strong> Jedinstveni identifikator admina. (Obavezno)</li>
+                <li><strong>vozac_id (int):</strong> Jedinstveni identifikator vozača. (Obavezno)</li>
+            </ul>
+            <h3>Odgovori:</h3>
+            <ul>
+                <li><strong>200 OK:</strong> Vozač uspešno dodat pod upravljanje admina.</li>
+                <li><strong>400 Bad Request:</strong> Nevalidan unos podataka.</li>
+                <li><strong>500 Internal Server Error:</strong> Došlo je do greške prilikom dodavanja vozača.</li>
+            </ul>
+            <h3>Primer korišćenja:</h3>
+            <pre class="code-example">
+        POST /api/Admin/1/AddDriver HTTP/1.1
+        Host: [domen]
+        Content-Type: application/json
+        {
+        "vozac_id": 2
+        }
+        </pre>
+        <h3>Odgovor:</h3>
+        <pre class="code-example">
+        {
+        "message": "Driver successfully added."
+        }
+        </pre>
+        
+        </div>
+
+        <div class="endpoint">
+            <h2>39. GetDriversByAdminId</h2>
+            <p><strong>Endpoint:</strong> <code>/api/Admin/{adminId}/Drivers</code></p>
+            <p><strong>Metoda:</strong> GET</p>
+            <p><strong>Opis:</strong> Dohvata sve vozače pod upravljanjem određenog admina.</p>
+            <h3>Parametri:</h3>
+            <ul>
+                <li><strong>adminId (int):</strong> Jedinstveni identifikator admina. (Obavezno)</li>
+            </ul>
+            <h3>Odgovori:</h3>
+            <ul>
+                <li><strong>200 OK:</strong> Uspešno dohvaćeni vozači.</li>
+                <li><strong>404 Not Found:</strong> Vozači za datog admina nisu pronađeni.</li>
+                <li><strong>500 Internal Server Error:</strong> Došlo je do greške prilikom dohvatanja vozača.</li>
+            </ul>
+            <h3>Primer korišćenja:</h3>
+            <pre class="code-example">
+        GET /api/Admin/1/Drivers HTTP/1.1
+        Host: [domen]
+            </pre>
+            <h3>Odgovor:</h3>
+            <pre class="code-example">
+        [
+            {
+                "Id": 2,
+                "Username": "driver123",
+                "Email": "driver@example.com",
+                "Ime": "Driver Ime",
+                "Vozilo": "Tesla Model S",
+                "Registracija": "AB123CD",
+                "Slika": null,
+                "Ocena": 4.8
+            },
+            ...
+        ]
+            </pre>
+        </div>
+
+        <div class="endpoint">
+            <h2>40. SendMessageToDriver</h2>
+            <p><strong>Endpoint:</strong> <code>/api/Admin/{adminId}/SendMessageToDriver</code></p>
+            <p><strong>Metoda:</strong> POST</p>
+            <p><strong>Opis:</strong> Šalje poruku od admina vozaču.</p>
+            <h3>Parametri:</h3>
+            <ul>
+                <li><strong>adminId (int):</strong> Jedinstveni identifikator admina. (Obavezno)</li>
+                <li><strong>vozac_id (int):</strong> Jedinstveni identifikator vozača. (Obavezno)</li>
+                <li><strong>sadrzaj (string):</strong> Sadržaj poruke. (Obavezno)</li>
+            </ul>
+            <h3>Odgovori:</h3>
+            <ul>
+                <li><strong>200 OK:</strong> Poruka uspešno poslata.</li>
+                <li><strong>400 Bad Request:</strong> Nevalidan unos podataka.</li>
+                <li><strong>500 Internal Server Error:</strong> Došlo je do greške prilikom slanja poruke.</li>
+            </ul>
+            <h3>Primer korišćenja:</h3>
+            <pre class="code-example">
+        POST /api/Admin/1/SendMessageToDriver HTTP/1.1
+        Host: [domen]
+        Content-Type: application/json
+        {
+        "vozac_id": 2,
+        "sadrzaj": "Poruka za vozača."
+        }
+        </pre>
+        <h3>Odgovor:</h3>
+        <pre class="code-example">
+        {
+        "message": "Message sent successfully."
+        }
+        </pre>
+        
+        </div>
+
+        <div class="endpoint">
+            <h2>41. MarkMessageAsRead</h2>
+            <p><strong>Endpoint:</strong> <code>/api/Message/{porukaId}/MarkAsRead</code></p>
+            <p><strong>Metoda:</strong> PUT</p>
+            <p><strong>Opis:</strong> Ažurira status poruke na pročitano ili nepročitano.</p>
+            <h3>Parametri:</h3>
+            <ul>
+                <li><strong>porukaId (int):</strong> Jedinstveni identifikator poruke. (Obavezno)</li>
+                <li><strong>procitano (bool):</strong> Status poruke (true za pročitano, false za nepročitano). (Obavezno)</li>
+            </ul>
+            <h3>Odgovori:</h3>
+            <ul>
+                <li><strong>200 OK:</strong> Status poruke uspešno ažuriran.</li>
+                <li><strong>400 Bad Request:</strong> Nevalidan unos podataka.</li>
+                <li><strong>500 Internal Server Error:</strong> Došlo je do greške prilikom ažuriranja statusa poruke.</li>
+            </ul>
+            <h3>Primer korišćenja:</h3>
+            <pre class="code-example">
+        PUT /api/Message/1/MarkAsRead HTTP/1.1
+        Host: [domen]
+        Content-Type: application/json
+        {
+        "procitano": true
+        }
+        </pre>
+        <h3>Odgovor:</h3>
+        <pre class="code-example">
+        {
+        "message": "Message status updated successfully."
+        }
+        </pre>
+        
+        </div>
+
+        <div class="endpoint">
+            <h2>42. GetLastMessagesByDriverId</h2>
+            <p><strong>Endpoint:</strong> <code>/api/Driver/{vozacId}/Messages/{brojPoruka}</code></p>
+            <p><strong>Metoda:</strong> GET</p>
+            <p><strong>Opis:</strong> Dohvata poslednjih nekoliko poruka za određenog vozača.</p>
+            <h3>Parametri:</h3>
+            <ul>
+                <li><strong>vozacId (int):</strong> Jedinstveni identifikator vozača. (Obavezno)</li>
+                <li><strong>brojPoruka (int):</strong> Broj poslednjih poruka koje treba vratiti. (Obavezno)</li>
+            </ul>
+            <h3>Odgovori:</h3>
+            <ul>
+                <li><strong>200 OK:</strong> Uspešno dohvaćene poruke.</li>
+                <li><strong>404 Not Found:</strong> Poruke za datog vozača nisu pronađene.</li>
+                <li><strong>500 Internal Server Error:</strong> Došlo je do greške prilikom dohvatanja poruka.</li>
+            </ul>
+            <h3>Primer korišćenja:</h3>
+            <pre class="code-example">
+        GET /api/Driver/1/Messages/5 HTTP/1.1
+        Host: [domen]
+            </pre>
+            <h3>Odgovor:</h3>
+            <pre class="code-example">
+        [
+            {
+                "Id": 1,
+                "AdminId": 1,
+                "Sadrzaj": "Poruka za vozača.",
+                "DatumSlanja": "2024-08-24T12:00:00",
+                "Procitano": true,
+                "AdminUsername": "admin123",
+                "AdminEmail": "admin@example.com"
+            },
+            ...
+        ]
+            </pre>
+        </div>
 
 
     </div>
