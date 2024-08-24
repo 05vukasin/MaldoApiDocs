@@ -131,7 +131,7 @@ Host: [domen]
             <p><strong>Napomena:</strong> Ukoliko korisničko ime već postoji u bazi, funkcija će vratiti status 400 sa
                 porukom "Username already exists".</p>
         </div>
-        
+
 
         <div class="endpoint">
             <h2>3. UpdateEmployer</h2>
@@ -433,7 +433,8 @@ Host: [domen]
             <h2>10. GetRequestsByEmployerId</h2>
             <p><strong>Endpoint:</strong> <code>/api/Requests/Employer/{employerId}</code></p>
             <p><strong>Metoda:</strong> GET</p>
-            <p><strong>Opis:</strong> Ova funkcija vraća sve zahteve poslodavca na osnovu ID-a poslodavca. Svaki zahtev sadrži
+            <p><strong>Opis:</strong> Ova funkcija vraća sve zahteve poslodavca na osnovu ID-a poslodavca. Svaki zahtev
+                sadrži
                 detalje o vozaču, ponudi, i ID poslodavca, a datum kreiranja zahteva je uključen.</p>
             <h3>Parametri:</h3>
             <ul>
@@ -486,12 +487,13 @@ Host: [domen]
         ]
             </pre>
         </div>
-        
+
         <div class="endpoint">
             <h2>11. GetRequestsByDriverId</h2>
             <p><strong>Endpoint:</strong> <code>/api/Requests/Driver/{driverId}</code></p>
             <p><strong>Metoda:</strong> GET</p>
-            <p><strong>Opis:</strong> Ova funkcija vraća sve zahteve vozača na osnovu ID-a vozača. Svaki zahtev sadrži informacije o vozaču, poslodavcu i ponudi, a datum kreiranja zahteva je uključen.</p>
+            <p><strong>Opis:</strong> Ova funkcija vraća sve zahteve vozača na osnovu ID-a vozača. Svaki zahtev sadrži
+                informacije o vozaču, poslodavcu i ponudi, a datum kreiranja zahteva je uključen.</p>
             <h3>Parametri:</h3>
             <ul>
                 <li><strong>driverId (int):</strong> Jedinstveni identifikator vozača. (Obavezno)</li>
@@ -553,7 +555,8 @@ Host: [domen]
             <h2>12. GetRequestsByOfferId</h2>
             <p><strong>Endpoint:</strong> <code>/api/Requests/Offer/{offerId}</code></p>
             <p><strong>Metoda:</strong> GET</p>
-            <p><strong>Opis:</strong> Ova funkcija vraća sve zahteve na osnovu ID-a ponude. Svaki zahtev sadrži informacije o vozaču, poslodavcu i detaljima ponude, uključujući datum kreiranja zahteva.</p>
+            <p><strong>Opis:</strong> Ova funkcija vraća sve zahteve na osnovu ID-a ponude. Svaki zahtev sadrži
+                informacije o vozaču, poslodavcu i detaljima ponude, uključujući datum kreiranja zahteva.</p>
             <h3>Parametri:</h3>
             <ul>
                 <li><strong>offerId (int):</strong> Jedinstveni identifikator ponude. (Obavezno)</li>
@@ -610,7 +613,7 @@ Host: [domen]
         ]
             </pre>
         </div>
-        
+
 
         <div class="endpoint">
             <h2>12. CheckRequestForOffer</h2>
@@ -1043,7 +1046,8 @@ Host: [domen]
             <h2>24. GetRatingsByDriverId</h2>
             <p><strong>Endpoint:</strong> <code>/api/DriverRating/Driver/{driverId}</code></p>
             <p><strong>Metoda:</strong> GET</p>
-            <p><strong>Opis:</strong> Dohvata ocene vozača na osnovu ID-a vozača, uključujući podatke o poslodavcu i vozaču.</p>
+            <p><strong>Opis:</strong> Dohvata ocene vozača na osnovu ID-a vozača, uključujući podatke o poslodavcu i
+                vozaču.</p>
             <h3>Parametri:</h3>
             <ul>
                 <li><strong>driverId (int):</strong> Jedinstveni identifikator vozača. (Obavezno)</li>
@@ -1092,7 +1096,8 @@ Host: [domen]
             <h2>25. GetRatingsByEmployerId</h2>
             <p><strong>Endpoint:</strong> <code>/api/DriverRating/Employer/{employerId}</code></p>
             <p><strong>Metoda:</strong> GET</p>
-            <p><strong>Opis:</strong> Dohvata ocene poslodavca na osnovu ID-a poslodavca, uključujući podatke o vozaču i poslodavcu.</p>
+            <p><strong>Opis:</strong> Dohvata ocene poslodavca na osnovu ID-a poslodavca, uključujući podatke o vozaču i
+                poslodavcu.</p>
             <h3>Parametri:</h3>
             <ul>
                 <li><strong>employerId (int):</strong> Jedinstveni identifikator poslodavca. (Obavezno)</li>
@@ -1258,12 +1263,13 @@ Host: [domen]
         ]
             </pre>
         </div>
-        
+
         <div class="endpoint">
             <h2>29. getOffersWithoutDriver</h2>
             <p><strong>Endpoint:</strong> <code>/api/Offer/GetWithoutDriver</code></p>
             <p><strong>Metoda:</strong> GET</p>
-            <p><strong>Opis:</strong> Dohvata sve ponude koje nemaju dodeljenog vozača, zajedno sa podacima o poslodavcu.</p>
+            <p><strong>Opis:</strong> Dohvata sve ponude koje nemaju dodeljenog vozača, zajedno sa podacima o
+                poslodavcu.</p>
             <h3>Odgovori:</h3>
             <ul>
                 <li><strong>200 OK:</strong> Uspešno dohvaćene sve ponude bez vozača.</li>
@@ -1303,8 +1309,8 @@ Host: [domen]
             ]
             </pre>
         </div>
-        
-        
+
+
         <div class="endpoint">
             <h2>30. GetOfferById</h2>
             <p><strong>Endpoint:</strong> <code>/api/Offer/{id}</code></p>
@@ -1366,27 +1372,28 @@ Host: [domen]
         </div>
 
         <div class="endpoint">
-    <h2>31. GetOffersByEmployerID</h2>
-    <p><strong>Endpoint:</strong> <code>/api/Offer/EmployerID</code></p>
-    <p><strong>Metoda:</strong> GET</p>
-    <p><strong>Opis:</strong> Dohvata sve ponude koje pripadaju određenom poslodavcu na osnovu ID-a poslodavca.</p>
-    <h3>Parametri:</h3>
-    <ul>
-        <li><strong>employer_id (int):</strong> Jedinstveni identifikator poslodavca. (Obavezno)</li>
-    </ul>
-    <h3>Odgovori:</h3>
-    <ul>
-        <li><strong>200 OK:</strong> Uspešno dohvaćene ponude.</li>
-        <li><strong>404 Not Found:</strong> Ponude za datog poslodavca nisu pronađene.</li>
-        <li><strong>500 Internal Server Error:</strong> Došlo je do greške prilikom dohvatanja ponuda.</li>
-    </ul>
-    <h3>Primer korišćenja:</h3>
-    <pre class="code-example">
+            <h2>31. GetOffersByEmployerID</h2>
+            <p><strong>Endpoint:</strong> <code>/api/Offer/EmployerID</code></p>
+            <p><strong>Metoda:</strong> GET</p>
+            <p><strong>Opis:</strong> Dohvata sve ponude koje pripadaju određenom poslodavcu na osnovu ID-a poslodavca.
+            </p>
+            <h3>Parametri:</h3>
+            <ul>
+                <li><strong>employer_id (int):</strong> Jedinstveni identifikator poslodavca. (Obavezno)</li>
+            </ul>
+            <h3>Odgovori:</h3>
+            <ul>
+                <li><strong>200 OK:</strong> Uspešno dohvaćene ponude.</li>
+                <li><strong>404 Not Found:</strong> Ponude za datog poslodavca nisu pronađene.</li>
+                <li><strong>500 Internal Server Error:</strong> Došlo je do greške prilikom dohvatanja ponuda.</li>
+            </ul>
+            <h3>Primer korišćenja:</h3>
+            <pre class="code-example">
 GET /api/Offer/EmployerID?employer_id=1 HTTP/1.1
 Host: [domen]
     </pre>
-    <h3>Odgovor:</h3>
-    <pre class="code-example">
+            <h3>Odgovor:</h3>
+            <pre class="code-example">
 [
     {
         "Id": 1,
@@ -1424,30 +1431,31 @@ Host: [domen]
     ...
 ]
     </pre>
-</div>
+        </div>
 
-<div class="endpoint">
-    <h2>32. GetOffersByDriverId</h2>
-    <p><strong>Endpoint:</strong> <code>/api/Offer/DriverId</code></p>
-    <p><strong>Metoda:</strong> GET</p>
-    <p><strong>Opis:</strong> Dohvata sve ponude koje su dodeljene određenom vozaču na osnovu ID-a vozača. Ako ne postoje ponude za datog vozača, vraća status 404.</p>
-    <h3>Parametri:</h3>
-    <ul>
-        <li><strong>driverId (int):</strong> Jedinstveni identifikator vozača. (Obavezno)</li>
-    </ul>
-    <h3>Odgovori:</h3>
-    <ul>
-        <li><strong>200 OK:</strong> Uspešno dohvaćene ponude.</li>
-        <li><strong>404 Not Found:</strong> Ponude za datog vozača nisu pronađene.</li>
-        <li><strong>500 Internal Server Error:</strong> Došlo je do greške prilikom dohvatanja ponuda.</li>
-    </ul>
-    <h3>Primer korišćenja:</h3>
-    <pre class="code-example">
+        <div class="endpoint">
+            <h2>32. GetOffersByDriverId</h2>
+            <p><strong>Endpoint:</strong> <code>/api/Offer/DriverId</code></p>
+            <p><strong>Metoda:</strong> GET</p>
+            <p><strong>Opis:</strong> Dohvata sve ponude koje su dodeljene određenom vozaču na osnovu ID-a vozača. Ako
+                ne postoje ponude za datog vozača, vraća status 404.</p>
+            <h3>Parametri:</h3>
+            <ul>
+                <li><strong>driverId (int):</strong> Jedinstveni identifikator vozača. (Obavezno)</li>
+            </ul>
+            <h3>Odgovori:</h3>
+            <ul>
+                <li><strong>200 OK:</strong> Uspešno dohvaćene ponude.</li>
+                <li><strong>404 Not Found:</strong> Ponude za datog vozača nisu pronađene.</li>
+                <li><strong>500 Internal Server Error:</strong> Došlo je do greške prilikom dohvatanja ponuda.</li>
+            </ul>
+            <h3>Primer korišćenja:</h3>
+            <pre class="code-example">
 GET /api/Offer/DriverId?driverId=1 HTTP/1.1
 Host: [domen]
     </pre>
-    <h3>Odgovor:</h3>
-    <pre class="code-example">
+            <h3>Odgovor:</h3>
+            <pre class="code-example">
 [
     {
         "id": 2,
@@ -1476,7 +1484,7 @@ Host: [domen]
     ...
 ]
     </pre>
-</div>
+        </div>
 
         <div class="endpoint">
             <h2>33. UpdateDriverId</h2>
@@ -1565,13 +1573,13 @@ Host: [domen]
         "ime": "Admin Ime"
         }
         </pre>
-        <h3>Odgovor:</h3>
-        <pre class="code-example">
+            <h3>Odgovor:</h3>
+            <pre class="code-example">
         {
         "message": "Success"
         }
         </pre>
-        
+
         </div>
 
         <div class="endpoint">
@@ -1605,13 +1613,13 @@ Host: [domen]
         "ime": "New Admin Ime"
         }
         </pre>
-        <h3>Odgovor:</h3>
-        <pre class="code-example">
+            <h3>Odgovor:</h3>
+            <pre class="code-example">
         {
         "message": "Admin successfully updated."
         }
         </pre>
-        
+
         </div>
 
         <div class="endpoint">
@@ -1627,7 +1635,8 @@ Host: [domen]
             <ul>
                 <li><strong>200 OK:</strong> Uspešno dohvaćene informacije o adminu.</li>
                 <li><strong>404 Not Found:</strong> Admin sa datim ID-om nije pronađen.</li>
-                <li><strong>500 Internal Server Error:</strong> Došlo je do greške prilikom dohvatanja informacija o adminu.</li>
+                <li><strong>500 Internal Server Error:</strong> Došlo je do greške prilikom dohvatanja informacija o
+                    adminu.</li>
             </ul>
             <h3>Primer korišćenja:</h3>
             <pre class="code-example">
@@ -1671,13 +1680,13 @@ Host: [domen]
         "vozac_id": 2
         }
         </pre>
-        <h3>Odgovor:</h3>
-        <pre class="code-example">
+            <h3>Odgovor:</h3>
+            <pre class="code-example">
         {
         "message": "Driver successfully added."
         }
         </pre>
-        
+
         </div>
 
         <div class="endpoint">
@@ -1745,13 +1754,13 @@ Host: [domen]
         "sadrzaj": "Poruka za vozača."
         }
         </pre>
-        <h3>Odgovor:</h3>
-        <pre class="code-example">
+            <h3>Odgovor:</h3>
+            <pre class="code-example">
         {
         "message": "Message sent successfully."
         }
         </pre>
-        
+
         </div>
 
         <div class="endpoint">
@@ -1762,13 +1771,15 @@ Host: [domen]
             <h3>Parametri:</h3>
             <ul>
                 <li><strong>porukaId (int):</strong> Jedinstveni identifikator poruke. (Obavezno)</li>
-                <li><strong>procitano (bool):</strong> Status poruke (true za pročitano, false za nepročitano). (Obavezno)</li>
+                <li><strong>procitano (bool):</strong> Status poruke (true za pročitano, false za nepročitano).
+                    (Obavezno)</li>
             </ul>
             <h3>Odgovori:</h3>
             <ul>
                 <li><strong>200 OK:</strong> Status poruke uspešno ažuriran.</li>
                 <li><strong>400 Bad Request:</strong> Nevalidan unos podataka.</li>
-                <li><strong>500 Internal Server Error:</strong> Došlo je do greške prilikom ažuriranja statusa poruke.</li>
+                <li><strong>500 Internal Server Error:</strong> Došlo je do greške prilikom ažuriranja statusa poruke.
+                </li>
             </ul>
             <h3>Primer korišćenja:</h3>
             <pre class="code-example">
@@ -1779,13 +1790,13 @@ Host: [domen]
         "procitano": true
         }
         </pre>
-        <h3>Odgovor:</h3>
-        <pre class="code-example">
+            <h3>Odgovor:</h3>
+            <pre class="code-example">
         {
         "message": "Message status updated successfully."
         }
         </pre>
-        
+
         </div>
 
         <div class="endpoint">
@@ -1825,6 +1836,60 @@ Host: [domen]
         ]
             </pre>
         </div>
+
+
+        <div class="endpoint">
+            <h2>43. AddPatrolCoordinate</h2>
+            <p><strong>Endpoint:</strong> <code>/api/Patrol/AddCoordinate</code></p>
+            <p><strong>Metoda:</strong> POST</p>
+            <p><strong>Opis:</strong> Dodaje novu koordinatu za patrolu sa pratećim komentarom.</p>
+            <h3>Parametri:</h3>
+            <ul>
+                <li><strong>longitude (double):</strong> Geografska dužina (longitude) koordinata. (Obavezno)</li>
+                <li><strong>latitude (double):</strong> Geografska širina (latitude) koordinata. (Obavezno)</li>
+                <li><strong>komentar (string):</strong> Komentar koji se odnosi na date koordinate. (Obavezno)</li>
+            </ul>
+            <h3>Odgovori:</h3>
+            <ul>
+                <li><strong>200 OK:</strong> Koordinata je uspešno dodata.</li>
+                <li><strong>400 Bad Request:</strong> Nevalidan ili nedostajući unos podataka.</li>
+                <li><strong>500 Internal Server Error:</strong> Došlo je do greške prilikom dodavanja koordinate.</li>
+            </ul>
+            <h3>Primer korišćenja:</h3>
+            <pre class="code-example"> POST /api/Patrol/AddCoordinate HTTP/1.1 Host: [domen] Content-Type: application/json
+{ "longitude": 19.8426, "latitude": 45.2671, "komentar": "Zabeleženo na mestu patroliranja." } </pre>
+            <h3>Odgovor:</h3>
+            <pre class="code-example"> { "message": "Coordinate successfully added." } </pre>
+
+        </div>
+
+        <div class="endpoint">
+            <h2>44. GetAllPatrolCoordinates</h2>
+            <p><strong>Endpoint:</strong> <code>/api/Patrol/Coordinates</code></p>
+            <p><strong>Metoda:</strong> GET</p>
+            <p><strong>Opis:</strong> Dohvata sve koordinate patrola sa pripadajućim komentarima.</p>
+            <h3>Parametri:</h3>
+            <ul>
+                <li>Nema ulaznih parametara.</li>
+            </ul>
+            <h3>Odgovori:</h3>
+            <ul>
+                <li><strong>200 OK:</strong> Uspešno dohvaćene koordinate.</li>
+                <li><strong>404 Not Found:</strong> Koordinate nisu pronađene.</li>
+                <li><strong>500 Internal Server Error:</strong> Došlo je do greške prilikom dohvatanja koordinata.</li>
+            </ul>
+            <h3>Primer korišćenja:</h3>
+            <pre class="code-example"> GET /api/Patrol/Coordinates HTTP/1.1 Host: [domen] </pre>
+            <h3>Odgovor:</h3>
+            <pre
+                class="code-example"> [ { "Id": 1, "Longitude": 19.8426, "Latitude": 45.2671, "Komentar": "Zabeleženo na mestu patroliranja.", "DatumDodavanja": "2024-08-24T12:00:00" }, ... ] </pre>
+        </div>
+
+
+
+
+
+
 
 
     </div>
